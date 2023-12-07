@@ -1,0 +1,86 @@
+.header {
+    text-align: center;
+    background-image: linear-gradient(135deg, #ffff80 0%, #ff80bf 100%);
+    font-family: inherit;
+    font-size: 30px;
+    line-height: 50px;
+    margin: 0px 0px 20px;
+    color: #f2f2f2;
+    background-size: 100%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.body {
+    background-color: #08070b;
+}
+html {
+    background-color: #08070b;
+    color: #8f9ba8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+        Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+#root {
+    background-color: #08070b;
+}
+
+.copy-button {
+    background-color: #08070b; /* Dark grey background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 15px; /* Some padding */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 10px; /* Margin at the bottom */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-family: Arial, sans-serif; /* Font styling */
+    display: flex; /* Flexbox for aligning icon and text */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    gap: 10px; /* Space between icon and text */
+    margin-left: 42px;
+}
+
+.copy-button:hover {
+    background-color: #666; /* Slightly lighter grey on hover */
+}
+
+.copy-button i {
+    margin-right: 5px;
+    /* Space between icon and text */
+}
+
+.copy-success {
+    color: #f2f2f2;
+    margin-top: 1rem;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Take up full viewport height */
+}
+
+.loader::before {
+    content: "";
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top-color: #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

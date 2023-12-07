@@ -1,0 +1,53 @@
+.year-slider {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.year-labels-container {
+    display: flex;
+    justify-content: space-between; /* This will space out the children evenly */
+    position: relative; /* Positioning context for the labels */
+    margin-top: 5px; /* Adjust as needed */
+}
+
+.year-label {
+    position: absolute;
+    transform: translateX(-50%); /* This centers the label above the tick */
+    color: white;
+    /* Additional styling as needed */
+}
+
+.example-thumb {
+    background-color: #4caf50;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.example-track {
+    background: #ddd;
+    height: 8px;
+}
+
+.example-mark {
+    background: black;
+    height: 10px;
+    width: 10px;
+    top: -1px;
+    border-radius: 50%;
+}
+
+/* Styles for Mozilla Firefox */
+/* input[type="range"]::-moz-range-track {
+    width: 0.7px;
+} */
+
+/* Styles for Microsoft firefox */
+/* input[type="range"]::-moz-range-thumb {
+    background: #4169e1;
+    color: blue;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+} */
