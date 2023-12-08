@@ -235,7 +235,7 @@ header h1 {
 .description p {
     font-size: 1.1rem;
     margin-bottom: 2rem;
-    color: #8f9ba8;
+    /* color: #8f9ba8; */
 }
 
 .stats {
