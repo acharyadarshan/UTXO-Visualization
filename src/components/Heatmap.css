@@ -251,6 +251,15 @@ header h1 {
     border: 1px solid #333; /* Placeholder for styling */
     box-shadow: rgba(255, 255, 255, 0.16) 0px 10px 36px 0px,
         rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.stat:hover {
+    transform: scale(1.05); /* Slightly larger on hover */
+}
+
+.stat:not(:hover) {
+    transition: transform 0.3s ease-in-out;
 }
 
 .stat h2 {
