@@ -28,8 +28,9 @@ body {
     /* background: linear-gradient(to right, #000000, #434343); */
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    color: #333;
+    color: #f2f2f2;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+        Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 /* YearSlider container styling */
@@ -167,7 +168,11 @@ body {
 
 /* Button Hover Effect */
 .parent > button:hover {
-    background-color: burlywood;
+    color: #80ffea;
+    background-size: 100%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(135deg, #80ffea 0%, #8aff80 100%);
 }
 
 /* Button Active/Click Effect */
@@ -198,4 +203,69 @@ body {
 /* Button Animation Trigger */
 .preview-button:not(:active):focus {
     animation: pulse-animation 1.5s infinite;
+}
+
+.chart {
+    color: #333;
+}
+
+/* styles.css */
+body {
+    background-color: #000;
+    color: #f2f2f2;
+    margin: 0;
+    padding: 20px;
+}
+
+.info-container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 2em;
+    margin-bottom: 1rem;
+}
+
+.updated {
+    font-size: 0.9em;
+}
+
+.description p {
+    font-size: 1em;
+    margin-bottom: 1rem;
+}
+
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.stat {
+    flex: 1 1 200px; /* Adjust the min-width for responsiveness */
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #333; /* Placeholder for styling */
+    box-shadow: rgba(255, 255, 255, 0.16) 0px 10px 36px 0px,
+        rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.stat h2 {
+    font-size: 2.5em;
+    color: orange; /* or blue depending on the section */
+    margin: 0;
+    background-image: linear-gradient(135deg, #80ffea 0%, #8aff80 100%);
+    color: #80ffea;
+    background-size: 100%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.reminder h1 {
+    background-image: linear-gradient(135deg, #80ffea 0%, #8aff80 100%);
+    color: #80ffea;
+    background-size: 100%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

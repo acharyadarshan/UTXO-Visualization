@@ -1,20 +1,28 @@
 .header {
     text-align: center;
-    background-image: linear-gradient(135deg, #ffff80 0%, #ff80bf 100%);
+    background-image: linear-gradient(135deg, #80ffea 0%, #8aff80 100%);
     font-family: inherit;
     font-size: 30px;
     line-height: 50px;
     margin: 0px 0px 20px;
-    color: #f2f2f2;
+    color: #80ffea;
     background-size: 100%;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 3px #80ffea, 0 0 6px #39ff14;
 }
 
 .header {
     margin-top: 30px;
     margin-bottom: 50px;
 }
+/* .sub-heading h1 {
+    color: #80ffea;
+    background-size: 100%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(135deg, #80ffea 0%, #8aff80 100%);
+} */
 .body {
     background-color: #08070b;
 }
