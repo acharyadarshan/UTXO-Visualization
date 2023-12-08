@@ -24,7 +24,7 @@ function App() {
             </div>
             <div class="info-container">
                 <header className="sub-heading">
-                    <h1>BITCOIN UTXO STATS</h1>
+                    <h1>UTXO STATS</h1>
                 </header>
                 <section class="description">
                     <p>
