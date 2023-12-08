@@ -51,7 +51,7 @@ function App() {
                     </div>
                     <div class="stat">
                         <h2>632</h2>
-                        <p>MAX TRANSACTIONS IN A SINGLE DAY</p>
+                        <p>MAX TRANSACTIONS IN A SINGLE YEAR</p>
                     </div>
                     <div class="stat">
                         <h2>14</h2>
@@ -62,6 +62,19 @@ function App() {
                         <p>TOTAL USERS</p>
                     </div>
                 </section>
+                <div className="switch">
+                    <button
+                        onClick={() =>
+                            window.open(
+                                "https://gjnguyen18.github.io/utxo-lenses/",
+                                "_blank"
+                            )
+                        }
+                    >
+                        {" "}
+                        Switch to 3D
+                    </button>
+                </div>
             </div>
             <YearSlider minYear={2018} maxYear={2023} onYearChange={handleYearChange} />
             <Heatmap transactionCount={transactionCount} currentYear={currentYear} />

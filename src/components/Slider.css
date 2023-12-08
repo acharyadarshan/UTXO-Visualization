@@ -6,16 +6,15 @@
 
 .year-labels-container {
     display: flex;
-    justify-content: space-between; /* This will space out the children evenly */
-    position: relative; /* Positioning context for the labels */
-    margin-top: 5px; /* Adjust as needed */
+    justify-content: space-between;
+    position: relative;
+    margin-top: 5px;
 }
 
 .year-label {
     position: absolute;
-    transform: translateX(-50%); /* This centers the label above the tick */
+    transform: translateX(-50%);
     color: white;
-    /* Additional styling as needed */
 }
 
 .example-thumb {
@@ -37,17 +36,3 @@
     top: -1px;
     border-radius: 50%;
 }
-
-/* Styles for Mozilla Firefox */
-/* input[type="range"]::-moz-range-track {
-    width: 0.7px;
-} */
-
-/* Styles for Microsoft firefox */
-/* input[type="range"]::-moz-range-thumb {
-    background: #4169e1;
-    color: blue;
-    width: 17px;
-    height: 17px;
-    border-radius: 50%;
-} */
