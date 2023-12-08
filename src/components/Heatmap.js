@@ -11,11 +11,12 @@ const Heatmap = ({ transactionCount, currentYear }) => {
     const [allTransactions, setAllTransactions] = useState([]); // Store all fetched transactions
     const [showTransactionHistory, setShowTransactionHistory] = useState(false);
     const [copySuccess, setCopySuccess] = useState(""); // State to manage copy success message
+    const [transactionVisibility, setTransactionVisibility] = useState("hide");
 
     useEffect(() => {
         const fetchData = async () => {
             const url =
-                "https://raw.githubusercontent.com/gjnguyen18/utxo-lenses/setup-plus-testData/testData.json";
+                "https://raw.githubusercontent.com/boluwarinayinmode/Utxo-JS/main/database/transformed_data2.json";
 
             try {
                 const res = await axios.get(url);
@@ -205,6 +206,18 @@ const Heatmap = ({ transactionCount, currentYear }) => {
         };
     }, [transactionCount, currentYear]);
 
+    const toggleTransactionVisibility = () => {
+        if (transactionVisibility === "hide") {
+            setSelectedTransactions(allTransactions.slice(0, transactionCount)); // Show transactions
+            setTransactionVisibility("show");
+            setShowTransactionHistory(true); // Sync with showTransactionHistory
+        } else {
+            setSelectedTransactions([]); // Hide the transactions
+            setTransactionVisibility("hide");
+            setShowTransactionHistory(false); // Sync with showTransactionHistory
+        }
+    };
+
     const copyTransactionsToClipboard = () => {
         const transactionString = selectedTransactions
             .map(
@@ -229,13 +242,10 @@ const Heatmap = ({ transactionCount, currentYear }) => {
             <div className="container">
                 <svg className="chart"></svg>
             </div>
-            <button
-                onClick={() => {
-                    setSelectedTransactions(allTransactions.slice(0, transactionCount));
-                    setShowTransactionHistory(true); // This will trigger the display of the transaction history
-                }}
-            >
-                Preview Transactions up to {currentYear}
+            <button onClick={toggleTransactionVisibility}>
+                {transactionVisibility === "hide"
+                    ? `Preview Transactions up to ${currentYear}`
+                    : `Hide Transactions up to ${currentYear}`}
             </button>
             {copySuccess && <div className="copy-success">{copySuccess}</div>}
 

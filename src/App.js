@@ -4,12 +4,12 @@ import YearSlider from "./components/YearSlider";
 import "../src/components/external.css";
 
 function App() {
-    const [transactionCount, setTransactionCount] = useState(10);
+    const [transactionCount, setTransactionCount] = useState(500);
     const [currentYear, setCurrentYear] = useState(2018);
 
     const baseYear = 2018;
-    const baseTransactionCount = 10; // Base number of transactions in the starting year
-    const transactionIncrementPerYear = 10; // Increment of transactions for each year
+    const baseTransactionCount = 1000; // Base number of transactions in the starting year
+    const transactionIncrementPerYear = 2000; // Increment of transactions for each year
 
     const handleYearChange = (year) => {
         setCurrentYear(year);

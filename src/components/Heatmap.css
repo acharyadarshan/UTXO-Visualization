@@ -51,6 +51,7 @@ body {
 
 .parent {
     overflow: hidden;
+    margin-top: 1.5rem;
 }
 .tooltip {
     position: absolute;
