@@ -64,6 +64,9 @@ const Heatmap = ({ transactionCount, currentYear }) => {
 
             transactions.forEach((transaction) => {
                 const { from, to, amount, timestamp } = transaction;
+
+                // Skip adding the transaction if it's from and to the same user
+
                 matrix[userIndex[from]][userIndex[to]].push({
                     from,
                     to,
@@ -143,28 +146,37 @@ const Heatmap = ({ transactionCount, currentYear }) => {
                 .attr("y", (d, i) => yScale(users[Math.floor(i / users.length)]))
                 .attr("width", xScale.bandwidth())
                 .attr("height", yScale.bandwidth())
-                .style("fill", (d) => colorScale(d3.sum(d, (t) => t.amount)))
+                // Changed the fill style to check for diagonal cells
+                .style("fill", (d, i) => {
+                    const rowIndex = Math.floor(i / users.length);
+                    const colIndex = i % users.length;
+                    if (rowIndex === colIndex) {
+                        return "none";
+                    } else {
+                        // 'd' is an array of transactions
+                        return colorScale(d3.sum(d, (t) => t.amount));
+                    }
+                })
                 .style("filter", "url(#drop-shadow)")
                 .style("stroke-width", "1px") // consistent stroke width for all cells
-                .on("mouseover", (event, d) => {
-                    //const totalAmount = d3.sum(d, transaction => transaction.amount)
-
-                    tooltip
-                        .html(
-                            d
-                                .map(
-                                    (t) =>
-                                        `<strong>From:</strong> ${t.from}<br>
-                                         <strong>To:</strong> ${t.to}<br>
-                                         <strong>Amount:</strong> ${t.amount}<br>
-                                         <strong>Timestamp:</strong> ${
-                                             t.timestamp || "N/A"
-                                         }`
-                                )
-                                .join("<hr>")
-                        )
-                        .style("opacity", 1)
-                        .style("visibility", "visible");
+                .on("mouseover", (event, d, i) => {
+                    const rowIndex = Math.floor(i / users.length);
+                    const colIndex = i % users.length;
+                    if (rowIndex !== colIndex) {
+                        tooltip
+                            .html(
+                                d
+                                    .map(
+                                        (t) =>
+                                            `<div>From: ${t.from}<br>To: ${t.to}<br>Amount: ${t.amount}</div>`
+                                    )
+                                    .join("<hr>")
+                            )
+                            .style("opacity", 1)
+                            .style("visibility", "visible");
+                    } else {
+                        tooltip.style("opacity", 0).style("visibility", "hidden");
+                    }
                 })
                 .on("mousemove", (event) => {
                     const tooltipHeight = tooltip.node().getBoundingClientRect().height;
@@ -187,7 +199,7 @@ const Heatmap = ({ transactionCount, currentYear }) => {
                 .selectAll("text")
                 .style("text-anchor", "start")
                 .text(function (d) {
-                    return d.slice(0, 6); // Truncates the label to the first 8 characters
+                    return d; // Truncates the label to the first 8 characters
                 })
                 .attr("dx", "-1.2em")
                 .attr("dy", "-.6em")
